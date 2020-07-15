@@ -16,7 +16,7 @@ libjson-c-dev: https://github.com/json-c/json-c
 
 Run makefile " make clean all "
 
-And then run " swapi "
+And then run " ./swapi "
 
 ## Build documentation
 Go to the folder doc " cd doc "
