@@ -8,11 +8,11 @@ gtk+ 3: https://developer.gnome.org/gtk3/stable/
 libcurl: https://curl.haxx.se/libcurl/
 libjson-c-dev: https://github.com/json-c/json-c
 
-##Build swapi_c
-"git clone https://github.com/TanchukVlad/swapi_c/"
-Run makefile "make clean all"
-And then run "swapi"
+## Build swapi_c
+" git clone https://github.com/TanchukVlad/swapi_c/ "
+Run makefile " make clean all "
+And then run " swapi "
 
-##Build documentation
-Go to the folder doc "cd doc"
-And Ran makefile "make clean html"
+## Build documentation
+Go to the folder doc " cd doc "
+And Ran makefile " make clean html "
