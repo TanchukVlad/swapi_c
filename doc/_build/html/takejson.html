@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TakeJson – takes json file using httpie to make an API request for a resource. &#8212; swapi_c  documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JsonInf – reads information about some object in JSON file" href="jsoninf.html" />
+    <link rel="prev" title="swapi_c Documentation!" href="index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jsoninf.html" title="JsonInf – reads information about some object in JSON file"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="swapi_c Documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">TakeJson – takes json file using httpie to make an API request for a resource.</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="takejson-takes-json-file-using-httpie-to-make-an-api-request-for-a-resource">
+<h1>TakeJson – takes json file using httpie to make an API request for a resource.<a class="headerlink" href="#takejson-takes-json-file-using-httpie-to-make-an-api-request-for-a-resource" title="Permalink to this headline">¶</a></h1>
+<p>This file makes rerquest to the swapi.dev and takes JSON file.
+Uses libcurl – the multiprotocol file transfer library.
+More about libcurl: <a class="reference external" href="https://curl.haxx.se/libcurl/">https://curl.haxx.se/libcurl/</a>.</p>
+<p>warning: unhandled cursor CursorKind.INCLUSION_DIRECTIVE takejson.h</p>
+<dl class="c type">
+<dt>
+<code class="sig-name descname">struct memory</code></dt>
+<dd><p>struct memory - Is used for saving requested information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>response</strong> – Saves information like a response from request.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This structure save json text from swapi.dev for future using.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.cb">
+size_t <code class="sig-name descname">cb</code><span class="sig-paren">(</span>char *<em>data</em>, size_t <em>size</em>, size_t <em>nmemb</em>, void *<em>userdata</em><span class="sig-paren">)</span><a class="headerlink" href="#c.cb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>cb() - Callback function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Pointer to the delivered data</p></li>
+<li><p><strong>size</strong> – Is always 1.</p></li>
+<li><p><strong>nmemb</strong> – Size of that data, number of memory bites.</p></li>
+<li><p><strong>userdata</strong> – pointer to the data structure.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This callback function cb() gets called by libcurl as soon as there is data
+received that needs to be saved.</p>
+<dl class="simple">
+<dt>Context: For most transfers, this callback gets called many times and each</dt><dd><p>invoke delivers another chunk of data. The data passed to this
+function will not be null-terminated!</p>
+</dd>
+</dl>
+<p>Return:  The number of bytes actually taken care of.</p>
+<p>If that amount differs from the amount passed to your callback function,
+it’ll signal an error condition to the library.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.take_json">
+char *<code class="sig-name descname">take_json</code><span class="sig-paren">(</span>char *<em>link</em><span class="sig-paren">)</span><a class="headerlink" href="#c.take_json" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>take_json() - Takes json file from request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>link</strong> – String which has API’s link to the json file.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function take_json() uses function from libcurl - The libcurl API. Takes
+API’s link and using curl functions get json information from this link.</p>
+<dl class="simple">
+<dt>Context: If information transfer has not been this function shows Error. And</dt><dd><p>returns empty buffer.</p>
+</dd>
+</dl>
+<p>Return:  Buffer which contains json file.</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">swapi_c Documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="jsoninf.html"
+                        title="next chapter">JsonInf – reads information about some object in JSON file</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/takejson.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jsoninf.html" title="JsonInf – reads information about some object in JSON file"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="swapi_c Documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">TakeJson – takes json file using httpie to make an API request for a resource.</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, TanchukVlad.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swapi – creates GUI for swapi.dev using gtk+ 3 &#8212; swapi_c  documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="JsonInf – reads information about some object in JSON file" href="jsoninf.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="jsoninf.html" title="JsonInf – reads information about some object in JSON file"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swapi – creates GUI for swapi.dev using gtk+ 3</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="swapi-creates-gui-for-swapi-dev-using-gtk-3">
+<h1>swapi – creates GUI for swapi.dev using gtk+ 3<a class="headerlink" href="#swapi-creates-gui-for-swapi-dev-using-gtk-3" title="Permalink to this headline">¶</a></h1>
+<p>Description about swapi. This program creates GUI for swapi.dev using gtk+ 3.
+Shows information about people, planets, species, vehicles, starships from
+The Star Wars API. Can search object and show the list of objects.</p>
+<p>warning: unhandled cursor CursorKind.INCLUSION_DIRECTIVE takejson.h</p>
+<dl class="c var">
+<dt id="c.unit">
+char *<code class="sig-name descname">unit</code><a class="headerlink" href="#c.unit" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>unit: String of resource. Depends on button callback functions.</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.search_text">
+char *<code class="sig-name descname">search_text</code><a class="headerlink" href="#c.search_text" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>search_text: String of search. Information is taken from search editor.</p>
+</dd></dl>
+
+<dl class="c var">
+<dt>
+<code class="sig-name descname">int [6] num</code></dt>
+<dd><p>unit: Array of resource’s number.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.output_text">
+void <code class="sig-name descname">output_text</code><span class="sig-paren">(</span>char **<em>atr_arr</em>, int <em>len</em>, int <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#c.output_text" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>output_text() - Displays text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atr_arr</strong> – array of atributes which this function shows.</p></li>
+<li><p><strong>len</strong> – len of atr_arr.</p></li>
+<li><p><strong>index</strong> – number of resource.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function displays information about attributes which was taken from JSON
+file about resource. Information pass to the text widget.</p>
+<dl class="simple">
+<dt>Context: When information about atribute wasn’t found, this function wright</dt><dd><p>in widget “none”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.search_fun">
+void <code class="sig-name descname">search_fun</code><span class="sig-paren">(</span>char **<em>atr_arr</em>, int <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#c.search_fun" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>search_fun() - Search and displays text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atr_arr</strong> – array of atributes which this function shows.</p></li>
+<li><p><strong>len</strong> – len of atr_arr.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function search and displays information about attributes which was
+taken from JSON file about resource. Information pass to the text widget.</p>
+<dl class="simple">
+<dt>Context: When name wasn’t found this function wright in widget “Not in &lt;resource&gt;”.</dt><dd><p>When information about atribute wasn’t found, this function wright
+in widget “none”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_people_cl">
+void <code class="sig-name descname">btn_people_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_people_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - Callback function about people.</p>
+<p>This function callback output_text() or search_fun(), depends on search status.
+If search_text = “none” callback output_text() else search_fun().
+This fun set unit = “people”.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_planets_cl">
+void <code class="sig-name descname">btn_planets_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_planets_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - Callback function about planets.</p>
+<p>This function callback output_text() or search_fun(), depends on search status.
+If search_text = “none” callback output_text() else search_fun().
+This fun set unit = “planets”.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_species_cl">
+void <code class="sig-name descname">btn_species_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_species_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - Callback function about species.</p>
+<p>This function callback output_text() or search_fun(), depends on search status.
+If search_text = “none” callback output_text() else search_fun().
+This fun set unit = “species”.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_vehicles_cl">
+void <code class="sig-name descname">btn_vehicles_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_vehicles_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - callback function about vehicles.</p>
+<p>This function callback output_text() or search_fun(), depends on search status.
+If search_text = “none” callback output_text() else search_fun().
+This fun set unit = “vehicles”.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_starships_cl">
+void <code class="sig-name descname">btn_starships_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_starships_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - Callback function about starships.</p>
+<p>This function callback output_text() or search_fun(), depends on search status.
+If search_text = “none” callback output_text() else search_fun().
+This fun set unit = “starships”.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_list_cl">
+void <code class="sig-name descname">btn_list_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_list_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_people_cl() - Callback function, makes list of objects.</p>
+<p>This function makes list of objects depends on resource.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_search_cl">
+void <code class="sig-name descname">btn_search_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_search_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_search_cl() - Callback function, makes search.</p>
+<p>This function callback button callback function depends on unit.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_right_cl">
+void <code class="sig-name descname">btn_right_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_right_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_right_cl() - Callback function, sets number of resource.</p>
+<p>This function callback button callback function and increments number of unit
+depends on unit.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.btn_left_cl">
+void <code class="sig-name descname">btn_left_cl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.btn_left_cl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>btn_left_cl() - Callback function, sets number of resource.</p>
+<p>This function callback button callback function and derements number of unit
+depends on unit.</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="jsoninf.html"
+                        title="previous chapter">JsonInf – reads information about some object in JSON file</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/swapi.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="jsoninf.html" title="JsonInf – reads information about some object in JSON file"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swapi – creates GUI for swapi.dev using gtk+ 3</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, TanchukVlad.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

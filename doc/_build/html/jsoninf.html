@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsonInf – reads information about some object in JSON file &#8212; swapi_c  documentation</title>
+    <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="swapi – creates GUI for swapi.dev using gtk+ 3" href="swapi.html" />
+    <link rel="prev" title="TakeJson – takes json file using httpie to make an API request for a resource." href="takejson.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="swapi.html" title="swapi – creates GUI for swapi.dev using gtk+ 3"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="takejson.html" title="TakeJson – takes json file using httpie to make an API request for a resource."
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">JsonInf – reads information about some object in JSON file</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="jsoninf-reads-information-about-some-object-in-json-file">
+<h1>JsonInf – reads information about some object in JSON file<a class="headerlink" href="#jsoninf-reads-information-about-some-object-in-json-file" title="Permalink to this headline">¶</a></h1>
+<p>JsonInf can reads information from JSON file and show the string from object in
+this file. Uses libjson-c-dev – JSON-C implements a reference counting object
+model that allows you to easily construct JSON objects in C, output them as
+JSON formatted strings and parse JSON formatted strings back into the C
+representation of JSON objects.</p>
+<p>warning: unhandled cursor CursorKind.INCLUSION_DIRECTIVE takejson.h</p>
+<dl class="c function">
+<dt id="c.conc">
+char *<code class="sig-name descname">conc</code><span class="sig-paren">(</span>char *<em>s1</em>, char *<em>s2</em><span class="sig-paren">)</span><a class="headerlink" href="#c.conc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>conc() - Makes concatenation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1</strong> – The first string.</p></li>
+<li><p><strong>s2</strong> – The second string.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function makes concatenation of two strings and adds in the end “/”.</p>
+<p>Context: Concatenates link string and parameter string.
+Return:  String which contains new link.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.set_count">
+int <code class="sig-name descname">set_count</code><span class="sig-paren">(</span>char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.set_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set_count() - Set count of objects from swapi.dev.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of resource which count is needed.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function set count of objects from resource which locats in swapi.dev.</p>
+<p>Context: If object not found shows Error and return 0.
+Return:  count of object.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.get_atr">
+char *<code class="sig-name descname">get_atr</code><span class="sig-paren">(</span>char *<em>atr_name</em>, char *<em>buf</em><span class="sig-paren">)</span><a class="headerlink" href="#c.get_atr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get_atr() - Get information from json attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atr_name</strong> – The name of attribute from which information is taken.</p></li>
+<li><p><strong>buf</strong> – The buffer of json file from which attribute is taken.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function uses buffer of json file and takes from them attribute
+information. The attribute has string information.</p>
+<dl class="simple">
+<dt>Context: If json file doesn’t have attribute this function shows Error and</dt><dd><p>return string “none”.</p>
+</dd>
+</dl>
+<p>Return:  String of attribute information.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.get_search_link">
+char *<code class="sig-name descname">get_search_link</code><span class="sig-paren">(</span>char *<em>link</em>, char *<em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#c.get_search_link" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get_search_link() - Makes search link.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>link</strong> – From this link makes search link.</p></li>
+<li><p><strong>name</strong> – The name of thing which is searched.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function creates a search link. Uses the base link, the string
+“?search=” and the name.</p>
+<p>Return:  String of the search link.</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.search_name">
+char *<code class="sig-name descname">search_name</code><span class="sig-paren">(</span>char *<em>atr_name</em>, char *<em>buf</em><span class="sig-paren">)</span><a class="headerlink" href="#c.search_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>search_name() - Gets information about found name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atr_name</strong> – The name of attribute from which information is taken.</p></li>
+<li><p><strong>buf</strong> – The buffer of json file from which attribute is taken.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function uses buffer of json file and takes from them attribute
+information. The attribute has string information. The buffer took
+information from search reference. A result of searching has array of found
+objects. This function take string of the object and take information from
+this string about attribute.</p>
+<dl class="simple">
+<dt>Context: If json file doesn’t have attribute or has not found objects after</dt><dd><p>searching this function shows Error and return string “none”.</p>
+</dd>
+</dl>
+<p>Return: String of attribute information.</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="takejson.html"
+                        title="previous chapter">TakeJson – takes json file using httpie to make an API request for a resource.</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="swapi.html"
+                        title="next chapter">swapi – creates GUI for swapi.dev using gtk+ 3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/jsoninf.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="swapi.html" title="swapi – creates GUI for swapi.dev using gtk+ 3"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="takejson.html" title="TakeJson – takes json file using httpie to make an API request for a resource."
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">swapi_c  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">JsonInf – reads information about some object in JSON file</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, TanchukVlad.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>
